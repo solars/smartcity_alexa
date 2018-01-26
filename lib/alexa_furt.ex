@@ -8,7 +8,7 @@ defmodule AlexaFurt do
     port = Application.fetch_env!(:my_app, :port)
 
     children = [
-			Plug.Adapters.Cowboy.child_spec(:http, AlexaFurt.Router, [], port: port),
+			Plug.Adapters.Cowboy.child_spec(:http, AlexaFurt.Router, [], port: 80),
 			worker(AlexaFurt.Skill, [[app_id: "dornbirn_furt"]]),
 			worker(Server, []),
 			worker(ServerGen, [])
