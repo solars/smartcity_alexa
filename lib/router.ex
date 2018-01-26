@@ -15,8 +15,9 @@ defmodule AlexaFurt.Router do
 
   post "/update" do
     {:ok, body, conn} = read_body(conn)
+    IO.inspect body
     %{"pegel" => pegel} = Poison.decode!(body)
-		Server.put(pegel)
+		ServerGen.update(%{pegel: pegel})
     conn = send_resp(conn, 200, "ok")
     conn = %{conn | resp_headers: [{"content-type", "application/json"}]}
     conn

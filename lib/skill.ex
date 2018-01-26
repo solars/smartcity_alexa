@@ -9,7 +9,7 @@ defmodule AlexaFurt.Skill do
 
 	def handle_intent("Pegel", request, response) do
 		response
-		|> say(Server.get)
+		|> say(ServerGen.get(:pegel))
     |> Alexa.Response.should_end_session(true)
 	end
 end
