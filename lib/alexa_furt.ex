@@ -5,7 +5,7 @@ defmodule AlexaFurt do
   def start(_type, _args) do
 		import Supervisor.Spec
 
-    port = Application.fetch_env!(:my_app, :port)
+    #port = Application.fetch_env!(:my_app, :port)
 
     children = [
 			Plug.Adapters.Cowboy.child_spec(:http, AlexaFurt.Router, [], port: 80),
